@@ -1,4 +1,6 @@
-apk update
-apk upgrade
-apk add gcc
-apk add git
+apt-get update
+apt-get upgrade
+
+apt-get install gcc
+apt-get install git
+apt-get install vim
