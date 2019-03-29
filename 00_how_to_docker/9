@@ -1,3 +1,4 @@
+#how to launch : docker run -ti --name ex9 --rm debian
 apt-get update
 apt-get upgrade
 
