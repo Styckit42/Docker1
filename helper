@@ -1,5 +1,2 @@
-14 je n arrive pas a configurer le wordpress
-15 Je n arrive pas a rentrer dans phpmyadmin
-19
-20 pourquoi $(docker-machine ip Char) ne prend pas la valeur de l Ip ?
-
+docker run -d --name spawning-pool --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings -v hatchery:/var/lib/mysql mysql --default-authentication-plugin=mysql_native_password
+docker run -v $HOME/Abathur:/root --name Abathur -p 3000:3000 -d python:2-slim sh -c "pip install Flask && (cd /root && flask run --port=3000 --host=0.0.0.0)"
