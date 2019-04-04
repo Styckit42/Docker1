@@ -38,29 +38,29 @@ RUN ( \
 EXPOSE 443 80 22
 
 RUN ( \
-	echo 'external_url "https://192.168.99.102"' && \
+	echo 'external_url "https://192.168.99.100"' && \
 	echo "gitlab_rails['gitlab_shell_ssh_port'] = 4242" && \
 	echo "nginx['redirect_http_to_https'] = true" && \
-	echo "nginx['ssl_certificate'] = '/etc/gitlab/ssl/192.168.99.102.crt'" &&  \
-	echo "nginx['ssl_certificate_key'] = '/etc/gitlab/ssl/192.168.99.102.key'") >> /etc/gitlab/gitlab.rb && \
+	echo "nginx['ssl_certificate'] = '/etc/gitlab/ssl/192.168.99.100.crt'" &&  \
+	echo "nginx['ssl_certificate_key'] = '/etc/gitlab/ssl/192.168.99.100.key'") >> /etc/gitlab/gitlab.rb && \
 	mkdir -p /etc/gitlab/ssl
 
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
-COPY cert.key /etc/gitlab/ssl/192.168.99.102.key
-COPY cert.crt /etc/gitlab/ssl/192.168.99.102.crt
+COPY cert.key /etc/gitlab/ssl/192.168.99.100.key
+COPY cert.crt /etc/gitlab/ssl/192.168.99.100.crt
 COPY wrapper .
 
 RUN chmod 777 ./wrapper
 CMD ["./wrapper"]
 
 #how to build ?
-#docker build -t ex03img .
+#docker build -t ex03img /path/to/Dockerfile
 
 #how to run
-docker run --privileged --name gitlab -p 80:80 -p 443:443 -p 4242:22 -d  ex03img:latest
+#docker run --privileged --name gitlab -p 80:80 -p 443:443 -p 4242:22 -d  ex03img:latest
 
 #attention a ce que les ip a la fin du dockerfile, correspondent a l ip de Char
 #generer clef SSH
 #rentrer la clef public sur gitlab
- 
+#pour changer le type de push : git remote add *name *Git ssh or https link 

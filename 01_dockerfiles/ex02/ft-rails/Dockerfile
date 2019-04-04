@@ -10,5 +10,5 @@ ONBUILD RUN bundle update
 ONBUILD RUN rake db:migrate
 ONBUILD RUN rake db:seed
 
-# How to build it?
+# How to build ?
 # docker build -t ft-rails:on-build .

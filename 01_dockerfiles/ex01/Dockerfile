@@ -23,7 +23,7 @@ ENTRYPOINT ["sh", "ts3server_minimal_runscript.sh"]
 # How to run ?
 
 # build the image with :
-# docker build -t ex01img projets/Docker1/01_dockerfiles/ex01/.
+# docker build -t ex01img /path/to/Dockerfile/.
 
 # Run the image with :
-# docker run -dti -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ex01img
+# docker run --name ex01container -dti -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ex01img
